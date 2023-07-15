@@ -1,3 +1,7 @@
+output "database_id" {
+  value = scaleway_rdb_instance.main.id
+}
+
 output "database_load_balancer" {
   value = scaleway_rdb_instance.main.load_balancer
 }
