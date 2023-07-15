@@ -16,7 +16,7 @@ resource "scaleway_rdb_instance" "main" {
   node_type                 = var.database_node_type
   engine                    = var.database_engine
   is_ha_cluster             = var.database_highly_available
-  user_name                 = random_uuid.db_username.result
+  user_name                 = "uuid-${random_uuid.db_username.result}"
   password                  = random_password.db_password.result
   volume_type               = "bssd"
   volume_size_in_gb         = var.database_storage_size_gb

@@ -15,5 +15,5 @@ output "database_private_network" {
 }
 
 output "database_user_name" {
-  value = random_uuid.db_username.result
+  value = "uuid-${random_uuid.db_username.result}"
 }
