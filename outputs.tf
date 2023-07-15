@@ -1,3 +1,7 @@
+output "database_id" {
+  value = scaleway_rdb_instance.main.id
+}
+
 output "database_load_balancer" {
   value = scaleway_rdb_instance.main.load_balancer
 }
@@ -11,5 +15,5 @@ output "database_private_network" {
 }
 
 output "database_user_name" {
-  value = random_uuid.db_username.result
+  value = "uuid-${random_uuid.db_username.result}"
 }
