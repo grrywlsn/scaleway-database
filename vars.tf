@@ -2,23 +2,29 @@
 ############################
 #### Scaleway variables ####
 
-variable "project_id" {
+variable "scaleway_project_id" {
   description = "Scaleway project ID"
   type        = string
 }
 
-variable "region" {
+variable "scaleway_region" {
   description = "Scaleway region ID"
   type        = string
 }
 
-variable "zone" {
+variable "scaleway_zone" {
   description = "Scaleway zone ID"
   type        = string
 }
 
 ############################
 ##### Module variables #####
+
+variable "database_allowed_ips" {
+  description = "List of IP CIDRs that are allowed to connect to the instance"
+  type        = list(string)
+  default     = []
+}
 
 variable "database_engine" {
   description = "Database engine type"
@@ -29,15 +35,20 @@ variable "database_engine" {
 variable "database_highly_available" {
   description = "If the database instance is highly available (boolean)"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "database_local_storage" {
+variable "database_storage_size_gb" {
   description = "Local storage to provision for the database (GB)"
   type        = string
   default     = "10"
 }
 
+variable "database_max_connections" {
+  description = "Maximum connections to the database"
+  type        = string
+  default     = "1000"
+}
 variable "database_name" {
   description = "Name of the database instance to create"
   type        = string
@@ -46,15 +57,10 @@ variable "database_name" {
 variable "database_node_type" {
   description = "Type of node to use for the database instance"
   type        = string
-  default     = "DB-DEV-S"
+  default     = "DB-PLAY2-PICO"
 }
 
-variable "vpc_id" {
-  description = "IP of the private network to attach the database"
-  type        = string
-}
-
-variable "vpc_subnet" {
-  description = "Subnet range of the private network to attach the database"
+variable "private_network_id" {
+  description = "ID of the private network in which to place the database"
   type        = string
 }
