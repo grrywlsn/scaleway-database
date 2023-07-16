@@ -6,9 +6,8 @@ resource "random_password" "db_password" {
   min_lower        = 2
   min_upper        = 2
   min_numeric      = 2
-  min_special      = 2
-  override_special = "#[]{}"
-
+  min_special      = 1
+  override_special = "!"
 }
 
 resource "scaleway_rdb_instance" "main" {
