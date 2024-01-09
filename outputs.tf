@@ -11,7 +11,7 @@ output "database_name" {
 }
 
 output "database_private_network" {
-  value = scaleway_rdb_instance.main.private_network
+  value = scaleway_rdb_instance.main.private_network[0].ip
 }
 
 output "database_user_name" {
