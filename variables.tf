@@ -10,7 +10,6 @@ variable "scaleway_project_id" {
 variable "scaleway_organization_id" {
   description = "Scaleway organisation ID"
   type        = string
-  default     = "9c8b8986-7213-4cbc-b531-fd010fece93e"
 }
 
 variable "scaleway_region" {
